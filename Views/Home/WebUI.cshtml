@@ -1,0 +1,33 @@
+﻿@model IEnumerable<Customer>
+@{
+    ViewBag.Title = "List Of Customers";
+    
+}
+
+
+<div class="card-deck">
+    @foreach (var customer in Model)
+    {
+        var photoPath = "~/Images/" + (customer.PhotoPath ?? "Iam_Tuse.jpg"); 
+        <div class="card mt-2" style="min-width:18rem;max-width:30.5%;margin:5px">
+            <div class="card-header text-center text-primary">
+                <h3>@customer.Name</h3>
+            </div>
+            <img src="@photoPath" class="card-img-top img-thumbnail imageThumnails" asp-append-version="true" alt="Image"/>
+            <div class="card-footer text-center">
+                <a asp-action="printdetails" asp-controller="home" class="btn btn-primary" asp-route-id="@customer.Id">View</a>
+                <a asp-action="edit" asp-controller="home" class="btn btn-primary" asp-route-id="@customer.Id">Edit</a>
+                <a asp-action="delete" asp-controller="home" class="btn btn-danger" asp-route-id="@customer.Id">Delete</a>
+            </div>
+        </div>
+
+
+
+    }
+
+
+</div>
+
+
+
+

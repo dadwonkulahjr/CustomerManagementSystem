@@ -1,0 +1,28 @@
+﻿@{
+    ViewBag.Title = "404 Error";
+}
+
+<div class="alert alert-danger alert-dismissible mt-1">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <h1>@ViewBag.ErrorMessage</h1>
+</div>
+
+
+<hr />
+<div class="alert alert-danger alert-dismissible">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <h4>
+        QueryStrings:  @ViewBag.QS
+    </h4>
+</div>
+<hr />
+<div class="alert alert-danger alert-dismissible">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <h4>
+        Error Path: @ViewBag.Path
+    </h4>
+</div>
+
+<a asp-action="webui" asp-controller="home" class="btn btn-outline-success">
+    Click on the link to view the list of customers.
+</a>

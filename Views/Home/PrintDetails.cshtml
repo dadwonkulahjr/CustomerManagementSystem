@@ -1,0 +1,36 @@
+﻿@model PrintDetailsViewModel
+
+@{ 
+    ViewBag.Title = "Customer Details";
+    var photoPath = "~/Images/" + (Model.Customer.PhotoPath ?? "Iam_Tuse.jpg");
+}
+
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card mt-1">
+            <div class="card-header text-primary text-center">
+                <h1>@Model.Customer.Name</h1>
+            </div>
+            <img src="@photoPath" asp-append-version="true" class="card-img-top rounded-circle" alt="tuse" />
+            <div class="card-body text-center text-primary">
+                <h4>
+                    Id: @Model.Customer.Id
+                </h4>
+                <h4>
+                    Email: @Model.Customer.Email
+                </h4>
+                <h4>
+                    Gender: @Model.Customer.Gender
+                </h4>
+            </div>
+            <div class="card-footer text-center">
+                <a asp-action="webui" asp-controller="home" class="btn btn-primary">Back</a>
+                <a asp-action="edit" asp-controller="home" class="btn btn-primary" asp-route-id="@Model.Customer.Id">Edit</a>
+                <a asp-action="delete" asp-controller="home" class="btn btn-danger" asp-route-id="@Model.Customer.Id">Delete</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
